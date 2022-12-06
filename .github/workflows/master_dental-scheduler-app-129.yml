@@ -23,15 +23,15 @@ jobs:
 
       - name: npm install, build, and test
         run: |
-          npm install
-          npm run build --if-present
-          npm run test --if-present
+          npm install --prefix ./starter/ContosoDentistryScheduler
+          npm run build --if-present  --prefix ./starter/ContosoDentistryScheduler
+          npm run test --if-present  --prefix ./starter/ContosoDentistryScheduler
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: node-app
-          path: .
+          path: ./starter/ContosoDentistryScheduler
 
   deploy:
     runs-on: ubuntu-latest
